@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garima Raj — Creator Revenue Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0e0e;
+  --ink2:#3a3a3a;
+  --ink3:#888;
+  --paper:#f5f0e8;
+  --paper2:#ede8dc;
+  --paper3:#e2dcd0;
+  --accent:#b5420a;
+  --accent2:#e8581a;
+  --gold:#c89b3c;
+  --green:#1a6b3a;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 4rem;
+  background:var(--paper);
+  border-bottom:1px solid var(--paper3);
+}
+.nav-logo{
+  font-family:var(--serif);
+  font-size:1.1rem;
+  color:var(--ink);
+  letter-spacing:0.02em;
+}
+.nav-logo span{color:var(--accent);font-style:italic;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  font-size:0.82rem;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink2);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--accent);}
+.nav-cta{
+  background:var(--ink);color:var(--paper);
+  font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.6rem 1.4rem;border:none;cursor:pointer;
+  font-family:var(--sans);
+  transition:background 0.2s;
+  text-decoration:none;
+  display:inline-block;
+}
+.nav-cta:hover{background:var(--accent);}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  padding-top:5rem;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 3rem 5rem 4rem;
+  border-right:1px solid var(--paper3);
+}
+.hero-eyebrow{
+  font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.hero-eyebrow::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent);}
+.hero-h1{
+  font-family:var(--serif);
+  font-size:clamp(2.8rem,4.5vw,4.2rem);
+  line-height:1.08;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+  margin-bottom:1.8rem;
+}
+.hero-h1 em{color:var(--accent);font-style:italic;}
+.hero-sub{
+  font-size:1.05rem;color:var(--ink2);
+  max-width:44ch;line-height:1.75;
+  margin-bottom:2.5rem;
+}
+.hero-sub strong{color:var(--ink);font-weight:500;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-primary{
+  background:var(--accent);color:#fff;
+  font-family:var(--sans);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.9rem 2rem;border:none;cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:background 0.2s;
+}
+.btn-primary:hover{background:var(--ink);}
+.btn-secondary{
+  background:transparent;color:var(--ink);
+  font-family:var(--sans);font-size:0.85rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.9rem 2rem;border:1px solid var(--ink);cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:all 0.2s;
+}
+.btn-secondary:hover{background:var(--ink);color:var(--paper);}
+.hero-stat-row{
+  display:flex;gap:2rem;
+  padding-top:2rem;
+  border-top:1px solid var(--paper3);
+}
+.stat-item .num{
+  font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--ink);
+  display:block;
+}
+.stat-item .label{font-size:0.75rem;color:var(--ink3);letter-spacing:0.06em;text-transform:uppercase;}
+
+.hero-right{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 3rem;
+  background:var(--paper2);
+  position:relative;
+}
+.hero-callout{
+  border-left:3px solid var(--accent);
+  padding:1.5rem 1.5rem 1.5rem 2rem;
+  margin-bottom:2rem;
+  background:var(--paper);
+}
+.hero-callout p{
+  font-family:var(--serif);font-size:1.1rem;font-style:italic;
+  color:var(--ink);line-height:1.6;
+}
+.hero-callout cite{
+  display:block;margin-top:0.75rem;
+  font-family:var(--sans);font-size:0.78rem;font-style:normal;
+  color:var(--ink3);letter-spacing:0.05em;text-transform:uppercase;
+}
+.money-missed{
+  background:var(--ink);color:var(--paper);
+  padding:1.5rem;
+}
+.money-missed-label{
+  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:1rem;
+}
+.money-rows{display:flex;flex-direction:column;gap:0.6rem;}
+.money-row{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.88rem;
+  padding-bottom:0.6rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.money-row:last-child{border:none;}
+.money-row .issue{color:rgba(255,255,255,0.6);}
+.money-row .loss{color:#e8a87c;font-family:var(--mono);font-weight:500;}
+.hero-badge{
+  margin-top:2rem;
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-size:0.78rem;color:var(--ink3);letter-spacing:0.04em;
+}
+.hero-badge::before{content:'✦';color:var(--gold);}
+
+/* PAIN SECTION */
+.pain{
+  padding:6rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;
+  border-top:1px solid var(--paper3);
+}
+.pain-left{}
+.section-label{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1rem;
+}
+.section-h2{
+  font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);
+  line-height:1.15;color:var(--ink);margin-bottom:1.5rem;
+}
+.section-h2 em{color:var(--accent);font-style:italic;}
+.section-body{font-size:1rem;color:var(--ink2);line-height:1.8;max-width:46ch;}
+.pain-cards{display:flex;flex-direction:column;gap:1px;background:var(--paper3);}
+.pain-card{
+  background:var(--paper);
+  padding:1.4rem 1.6rem;
+  display:flex;gap:1rem;align-items:flex-start;
+}
+.pain-card:hover{background:var(--paper2);}
+.pain-icon{
+  font-size:1.2rem;margin-top:0.15rem;flex-shrink:0;
+  width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+  background:var(--paper3);
+}
+.pain-card-body p{font-size:0.92rem;color:var(--ink2);margin-top:0.25rem;}
+.pain-card-body strong{font-size:0.9rem;color:var(--ink);font-weight:500;}
+
+/* MARKET DATA STRIP */
+.data-strip{
+  background:var(--ink);
+  padding:3rem 4rem;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  border-top:1px solid #222;
+}
+.data-strip-item{
+  padding:1rem 1.5rem;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.data-strip-item:last-child{border:none;}
+.data-num{
+  font-family:var(--serif);font-size:2.2rem;
+  color:#e8a87c;display:block;
+}
+.data-desc{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.25rem;line-height:1.5;}
+.data-source{font-size:0.68rem;color:rgba(255,255,255,0.25);margin-top:0.5rem;letter-spacing:0.04em;}
+
+/* SERVICES */
+.services{padding:6rem 4rem;border-top:1px solid var(--paper3);}
+.services-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+  margin-bottom:4rem;align-items:end;
+}
+.services-intro{font-size:0.95rem;color:var(--ink2);line-height:1.8;max-width:46ch;}
+.service-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--paper3);
+}
+.service-card{
+  background:var(--paper);
+  padding:2.5rem;
+  transition:background 0.2s;
+  cursor:default;
+}
+.service-card:hover{background:var(--paper2);}
+.service-card.featured{background:var(--accent);color:#fff;}
+.service-card.featured .svc-num{color:rgba(255,255,255,0.4);}
+.service-card.featured .svc-title{color:#fff;}
+.service-card.featured .svc-desc{color:rgba(255,255,255,0.8);}
+.service-card.featured .svc-price{color:#fff;}
+.service-card.featured .svc-price-label{color:rgba(255,255,255,0.6);}
+.service-card.featured .svc-items li{color:rgba(255,255,255,0.85);}
+.service-card.featured .svc-items li::before{color:rgba(255,255,255,0.5);}
+.svc-num{
+  font-family:var(--mono);font-size:0.72rem;
+  color:var(--ink3);letter-spacing:0.1em;
+  margin-bottom:1.2rem;display:block;
+}
+.svc-title{
+  font-family:var(--serif);font-size:1.4rem;
+  color:var(--ink);margin-bottom:0.8rem;line-height:1.2;
+}
+.svc-desc{font-size:0.88rem;color:var(--ink2);line-height:1.7;margin-bottom:1.5rem;}
+.svc-items{list-style:none;margin-bottom:1.5rem;}
+.svc-items li{
+  font-size:0.82rem;color:var(--ink2);
+  padding:0.3rem 0;
+  padding-left:1rem;
+  position:relative;
+}
+.svc-items li::before{content:'→';position:absolute;left:0;color:var(--accent);}
+.service-card.featured .svc-items li::before{color:rgba(255,255,255,0.5);}
+.svc-price-wrap{
+  border-top:1px solid var(--paper3);
+  padding-top:1rem;margin-top:auto;
+}
+.service-card.featured .svc-price-wrap{border-color:rgba(255,255,255,0.2);}
+.svc-price-label{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);}
+.svc-price{font-family:var(--mono);font-size:1.1rem;color:var(--ink);font-weight:500;}
+
+/* PRICING INSIGHT */
+.insight{
+  padding:6rem 4rem;
+  background:var(--paper2);
+  border-top:1px solid var(--paper3);
+  display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center;
+}
+.insight-table{width:100%;border-collapse:collapse;}
+.insight-table thead th{
+  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink3);font-weight:500;
+  padding:0.6rem 1rem;
+  text-align:left;
+  border-bottom:1px solid var(--paper3);
+}
+.insight-table tbody td{
+  padding:0.8rem 1rem;
+  font-size:0.88rem;
+  border-bottom:1px solid var(--paper3);
+}
+.insight-table tbody tr:last-child td{border:none;}
+.insight-table .niche{color:var(--ink);font-weight:500;}
+.insight-table .base{color:var(--ink2);font-family:var(--mono);font-size:0.82rem;}
+.insight-table .with-premium{color:var(--green);font-family:var(--mono);font-weight:500;font-size:0.88rem;}
+.insight-table .premium-tag{
+  display:inline-block;
+  background:#1a6b3a;color:#fff;
+  font-size:0.68rem;padding:0.15rem 0.5rem;
+  margin-left:0.4rem;letter-spacing:0.04em;
+}
+.insight-note{
+  margin-top:1.5rem;
+  font-size:0.8rem;color:var(--ink3);
+  padding-top:1rem;border-top:1px solid var(--paper3);
+}
+
+/* HOW IT WORKS */
+.process{padding:6rem 4rem;border-top:1px solid var(--paper3);}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--paper3);
+  margin-top:3rem;
+}
+.process-step{background:var(--paper);padding:2rem 1.5rem;}
+.step-n{
+  font-family:var(--mono);font-size:0.72rem;color:var(--accent);
+  letter-spacing:0.1em;margin-bottom:1.2rem;display:block;
+}
+.step-title{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:0.6rem;}
+.step-desc{font-size:0.83rem;color:var(--ink2);line-height:1.7;}
+
+/* TESTIMONIALS */
+.social-proof{
+  padding:6rem 4rem;
+  background:var(--paper2);
+  border-top:1px solid var(--paper3);
+}
+.proof-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--paper3);
+  margin-top:3rem;
+}
+.proof-card{background:var(--paper);padding:2rem;}
+.proof-quote{
+  font-family:var(--serif);font-style:italic;
+  font-size:0.95rem;line-height:1.7;color:var(--ink);
+  margin-bottom:1.2rem;
+}
+.proof-quote::before{content:'"';color:var(--accent);font-size:1.5rem;line-height:0;vertical-align:-0.3em;margin-right:0.1em;}
+.proof-by{font-size:0.78rem;color:var(--ink3);letter-spacing:0.04em;}
+.proof-result{
+  margin-top:0.8rem;
+  display:inline-block;
+  background:var(--green);color:#fff;
+  font-size:0.72rem;padding:0.2rem 0.6rem;letter-spacing:0.04em;
+}
+
+/* CTA SECTION */
+.cta-section{
+  padding:7rem 4rem;
+  border-top:1px solid var(--paper3);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+.cta-left h2{
+  font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);
+  line-height:1.1;color:var(--ink);margin-bottom:1.5rem;
+}
+.cta-left h2 em{color:var(--accent);font-style:italic;}
+.cta-body{font-size:0.95rem;color:var(--ink2);line-height:1.8;margin-bottom:2rem;max-width:44ch;}
+.cta-right{
+  background:var(--ink);
+  padding:2.5rem;
+}
+.cta-form-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.4rem;display:block;}
+.cta-form-field{
+  width:100%;background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  color:#fff;font-family:var(--sans);font-size:0.9rem;
+  padding:0.7rem 1rem;margin-bottom:1rem;
+  outline:none;
+}
+.cta-form-field::placeholder{color:rgba(255,255,255,0.25);}
+.cta-form-field:focus{border-color:var(--accent);}
+select.cta-form-field option{background:#1a1a1a;color:#fff;}
+.cta-submit{
+  width:100%;background:var(--accent);color:#fff;
+  font-family:var(--sans);font-size:0.85rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
+  padding:1rem;border:none;cursor:pointer;
+  transition:background 0.2s;
+  margin-top:0.5rem;
+}
+.cta-submit:hover{background:var(--accent2);}
+.form-note{font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:1rem;text-align:center;}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--paper3);
+  padding:2rem 4rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-name{font-family:var(--serif);font-size:0.95rem;color:var(--ink);}
+.footer-name span{color:var(--accent);font-style:italic;}
+.footer-note{font-size:0.75rem;color:var(--ink3);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.hero-left>*{animation:fadeUp 0.7s ease both;}
+.hero-eyebrow{animation-delay:0.1s}
+.hero-h1{animation-delay:0.2s}
+.hero-sub{animation-delay:0.3s}
+.hero-actions{animation-delay:0.4s}
+.hero-stat-row{animation-delay:0.5s}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right{border-top:1px solid var(--paper3);}
+  .pain,.services-header,.insight,.cta-section{grid-template-columns:1fr;}
+  .service-grid,.process-steps,.proof-grid,.data-strip{grid-template-columns:1fr;}
+  .hero-left,.hero-right,.services,.pain,.insight,.process,.social-proof,.cta-section{padding-left:1.5rem;padding-right:1.5rem;}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem;}
+  nav{padding:1rem 1.5rem;}
+  .data-strip-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Garima <span>Raj</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#benchmarks">Benchmarks</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#results">Results</a></li>
+  </ul>
+  <a href="#book" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Creator Revenue Consulting</span>
+    <h1 class="hero-h1">Your last brand deal<br>probably <em>cost</em> you<br>more than it paid.</h1>
+    <p class="hero-sub">Most creators leave <strong>40–200% of their real rate</strong> on the table — not because they lack leverage, but because nobody showed them the numbers. I fix that.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Get Your Rate Audit →</a>
+      <a href="#services" class="btn-secondary">See Services</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="stat-item">
+        <span class="num">$32.5B</span>
+        <span class="label">Market size 2025</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">62%</span>
+        <span class="label">Brands raising budgets</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">~70%</span>
+        <span class="label">Creators underpriced</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-callout">
+      <p>Brands have never been spending more. Creators have never been more underpriced. That gap is your revenue waiting to be claimed.</p>
+      <cite>— Garima Raj, Business Analyst & Creator Revenue Consultant</cite>
+    </div>
+    <div class="money-missed">
+      <div class="money-missed-label">Where creators lose money — every deal</div>
+      <div class="money-rows">
+        <div class="money-row">
+          <span class="issue">Usage rights given away for free</span>
+          <span class="loss">–50 to –100%</span>
+        </div>
+        <div class="money-row">
+          <span class="issue">Niche premium not charged</span>
+          <span class="loss">–75 to –200%</span>
+        </div>
+        <div class="money-row">
+          <span class="issue">Priced on followers, not engagement</span>
+          <span class="loss">–30 to –60%</span>
+        </div>
+        <div class="money-row">
+          <span class="issue">No exclusivity clause negotiated</span>
+          <span class="loss">–20 to –40%</span>
+        </div>
+        <div class="money-row">
+          <span class="issue">Off-season pricing not adjusted</span>
+          <span class="loss">–25 to –50%</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-badge">Data sourced from IMH 2025, Collabstr, HypeAuditor benchmarks</div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain" id="why">
+  <div class="pain-left">
+    <div class="section-label">The problem</div>
+    <h2 class="section-h2">Creators are<br>guessing. Brands<br><em>are not.</em></h2>
+    <p class="section-body" style="margin-top:1rem;">Every brand that slides into your DMs has a media buyer, a benchmarks spreadsheet, and a floor price. You have a gut feeling. That's not a fair fight — until now.</p>
+  </div>
+  <div class="pain-cards">
+    <div class="pain-card">
+      <div class="pain-icon">📉</div>
+      <div class="pain-card-body">
+        <strong>You price by follower count, not value</strong>
+        <p>Follower count is a vanity metric. Brands care about engagement quality, niche authority, and audience intent. One metric gives away your leverage before the conversation starts.</p>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">📄</div>
+      <div class="pain-card-body">
+        <strong>Your rate card is guesswork with formatting</strong>
+        <p>89% of marketers now expect professional pricing documentation. If yours isn't grounded in real benchmarks, it signals amateur — and brands negotiate down immediately.</p>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🔒</div>
+      <div class="pain-card-body">
+        <strong>You're giving away usage rights for free</strong>
+        <p>When a brand reuses your content in paid ads, on their website, or in retail media — that's worth 50–100% extra. Most creators never ask. Brands never volunteer it.</p>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">🎯</div>
+      <div class="pain-card-body">
+        <strong>You don't know your niche premium</strong>
+        <p>Finance creators can charge 75–200% above baseline. Health creators 50–100% more. If you don't know your niche multiplier, you're charging lifestyle rates for specialist influence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA STRIP -->
+<div class="data-strip">
+  <div class="data-strip-item">
+    <span class="data-num">$32.55B</span>
+    <div class="data-desc">Global influencer market size in 2025 — the biggest year on record</div>
+    <div class="data-source">Source: Influencer Marketing Hub 2025</div>
+  </div>
+  <div class="data-strip-item">
+    <span class="data-num">54%</span>
+    <div class="data-desc">Brands now use retainer models — yet most creators still pitch one-off deals</div>
+    <div class="data-source">Source: IMH 2025 Benchmark Report</div>
+  </div>
+  <div class="data-strip-item">
+    <span class="data-num">+32%</span>
+    <div class="data-desc">Instagram Reels command over TikTok per equivalent reach — per Collabstr 2025</div>
+    <div class="data-source">Source: Collabstr 2025 Report</div>
+  </div>
+  <div class="data-strip-item">
+    <span class="data-num">89%</span>
+    <div class="data-desc">Marketers now expect professional pricing documentation from creators</div>
+    <div class="data-source">Source: IMH 2024 State of Influencer Marketing</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label">Services</div>
+      <h2 class="section-h2">Four ways I put<br>real money back<br><em>in your deals.</em></h2>
+    </div>
+    <p class="services-intro">No content coaching. No follower growth tips. I work with one thing: the business logic of your influence — what it's worth, what brands will pay, and how to negotiate it.</p>
+  </div>
+  <div class="service-grid">
+    <div class="service-card featured">
+      <span class="svc-num">01 — Most popular</span>
+      <div class="svc-title">Rate Card Architecture</div>
+      <p class="svc-desc">A custom, benchmark-grounded rate card built from your engagement data, niche, audience demographics, and platform. Not a template — an analytical document brands can't dismiss.</p>
+      <ul class="svc-items">
+        <li>Engagement-to-value conversion analysis</li>
+        <li>Niche premium calculation (your multiplier)</li>
+        <li>Platform-by-platform rate tiers</li>
+        <li>Usage rights pricing framework</li>
+        <li>Seasonal adjustment guidance</li>
+      </ul>
+      <div class="svc-price-wrap">
+        <div class="svc-price-label">Starting at</div>
+        <div class="svc-price">₹8,000 — ₹18,000</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="svc-num">02</span>
+      <div class="svc-title">Brand Deal Forensics</div>
+      <p class="svc-desc">Send me any deal — live offer, past deal, or template contract. I'll tell you exactly where you were undercut, what you should have charged, and how to counter.</p>
+      <ul class="svc-items">
+        <li>Offer-vs-benchmark gap analysis</li>
+        <li>Usage rights audit</li>
+        <li>Exclusivity clause valuation</li>
+        <li>Counter-offer strategy with numbers</li>
+        <li>Deliverables restructure for max value</li>
+      </ul>
+      <div class="svc-price-wrap">
+        <div class="svc-price-label">Starting at</div>
+        <div class="svc-price">₹4,500 per deal</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="svc-num">03</span>
+      <div class="svc-title">Negotiation Strategy</div>
+      <p class="svc-desc">Data-backed talk tracks and counter-offer logic tailored to your specific deal. Walk into every negotiation knowing your floor, your anchor, and your walk-away point.</p>
+      <ul class="svc-items">
+        <li>Anchor pricing psychology</li>
+        <li>Objection scripts for common pushback</li>
+        <li>Bundle structuring for perceived value</li>
+        <li>Email and DM response templates</li>
+      </ul>
+      <div class="svc-price-wrap">
+        <div class="svc-price-label">Starting at</div>
+        <div class="svc-price">₹5,000 per session</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="svc-num">04</span>
+      <div class="svc-title">Creator Revenue Retainer</div>
+      <p class="svc-desc">Ongoing deal review, quarterly rate card updates, and negotiation support across all your brand partnerships. Built for creators who are actively growing and want every deal optimised.</p>
+      <ul class="svc-items">
+        <li>All inbound deal reviews included</li>
+        <li>Quarterly benchmark recalibration</li>
+        <li>Income stream diversification audit</li>
+        <li>Priority response within 24 hours</li>
+      </ul>
+      <div class="svc-price-wrap">
+        <div class="svc-price-label">Monthly retainer</div>
+        <div class="svc-price">₹15,000 — ₹25,000 / mo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENCHMARK TABLE -->
+<section class="insight" id="benchmarks">
+  <div>
+    <div class="section-label">Live market data</div>
+    <h2 class="section-h2">What your niche<br>is actually<br><em>worth</em> in 2025.</h2>
+    <p class="section-body" style="margin-top:1rem;margin-bottom:1.5rem;">Most rate cards ignore the single biggest pricing lever: niche premium. Here's what the data says brands are actually paying — and what creators in these spaces are charging (or should be).</p>
+    <p style="font-size:0.82rem;color:var(--ink3);line-height:1.6;">These are benchmark ranges for micro-to-mid tier creators (10K–500K followers) on Instagram per post. Your actual rate depends on engagement quality, deliverables, and usage scope — which is exactly what I calculate for you.</p>
+  </div>
+  <div>
+    <table class="insight-table">
+      <thead>
+        <tr>
+          <th>Niche</th>
+          <th>Base rate</th>
+          <th>With correct premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="niche">Finance / Fintech</td>
+          <td class="base">₹40K–₹1.5L</td>
+          <td class="with-premium">₹1.1L–₹4.5L <span class="premium-tag">+75–200%</span></td>
+        </tr>
+        <tr>
+          <td class="niche">Health & Wellness</td>
+          <td class="base">₹35K–₹1.2L</td>
+          <td class="with-premium">₹70K–₹3L <span class="premium-tag">+50–100%</span></td>
+        </tr>
+        <tr>
+          <td class="niche">Tech / SaaS</td>
+          <td class="base">₹40K–₹1.4L</td>
+          <td class="with-premium">₹80K–₹3.5L <span class="premium-tag">+50–150%</span></td>
+        </tr>
+        <tr>
+          <td class="niche">Fashion (Premium)</td>
+          <td class="base">₹30K–₹1L</td>
+          <td class="with-premium">₹50K–₹1.8L <span class="premium-tag">+30–80%</span></td>
+        </tr>
+        <tr>
+          <td class="niche">Fitness / Certified</td>
+          <td class="base">₹30K–₹1L</td>
+          <td class="with-premium">₹50K–₹1.75L <span class="premium-tag">+40–75%</span></td>
+        </tr>
+        <tr>
+          <td class="niche">Lifestyle (General)</td>
+          <td class="base">₹25K–₹80K</td>
+          <td class="with-premium">₹25K–₹80K <span class="premium-tag" style="background:#888;">Baseline</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight-note">Sources: Influencer Marketing Hub 2025 Benchmark Report · Collabstr 2025 · HypeAuditor India Influencer Report · INR conversion at prevailing rates. Figures represent single-post Instagram benchmarks, excl. usage rights.</div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-label">How it works</div>
+  <h2 class="section-h2">From gut feeling<br>to <em>defensible pricing</em><br>in 4 steps.</h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <span class="step-n">Step 01</span>
+      <div class="step-title">Data intake</div>
+      <p class="step-desc">You share your platform analytics, recent brand deals, and niche details. I need numbers, not narratives — engagement rate, audience demographics, content format breakdown.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-n">Step 02</span>
+      <div class="step-title">Benchmark analysis</div>
+      <p class="step-desc">I run your metrics against current market benchmarks across your platform, tier, and niche. I identify your pricing gap — how far off market you are and why.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-n">Step 03</span>
+      <div class="step-title">Rate framework build</div>
+      <p class="step-desc">I build your rate card with tiered pricing across deliverables, platform, usage rights, exclusivity, and seasonality. Every number is sourced and defensible.</p>
+    </div>
+    <div class="process-step">
+      <span class="step-n">Step 04</span>
+      <div class="step-title">Negotiation prep</div>
+      <p class="step-desc">You get a short briefing on how to present your rates, how to counter lowball offers, and where you have room to flex versus where you should hold firm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof" id="results">
+  <div class="section-label">Creator results</div>
+  <h2 class="section-h2">What changes when<br>you know your <em>real number.</em></h2>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <p class="proof-quote">I was charging ₹12,000 per reel. After the rate audit, I learned my engagement and niche warranted ₹34,000. My next deal closed at ₹30,000 — same brand, same deliverable.</p>
+      <div class="proof-by">Lifestyle & wellness creator · 67K Instagram followers</div>
+      <span class="proof-result">+₹18,000 on a single deal</span>
+    </div>
+    <div class="proof-card">
+      <p class="proof-quote">The usage rights analysis alone paid for the consulting fee three times over. The brand was planning to run my content in paid ads for 6 months. I had no idea I could charge for that.</p>
+      <div class="proof-by">Finance creator · 41K YouTube subscribers</div>
+      <span class="proof-result">₹45,000 in recovered usage fees</span>
+    </div>
+    <div class="proof-card">
+      <p class="proof-quote">I always felt uncomfortable negotiating because I didn't have data to back me up. Now I send a counter-offer with benchmarks attached. Brands respect it and they actually pay.</p>
+      <div class="proof-by">Tech & SaaS creator · 28K LinkedIn followers</div>
+      <span class="proof-result">3 of 4 counters accepted</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / BOOK -->
+<section class="cta-section" id="book">
+  <div class="cta-left">
+    <h2>Ready to find out what your last deal actually cost you?</h2>
+    <p class="cta-body">Book a free 20-minute rate audit call. I'll look at one recent brand deal or offer and tell you where the money went. No pitch, no pressure — just numbers.</p>
+    <p style="font-size:0.83rem;color:var(--ink3);">Response within 24 hours. Serious creators only — I work with a limited number of clients per month to ensure the analysis is actually thorough.</p>
+  </div>
+  <div class="cta-right">
+    <label class="cta-form-label">Your name</label>
+    <input class="cta-form-field" type="text" placeholder="Priya Sharma">
+    <label class="cta-form-label">Email or Instagram handle</label>
+    <input class="cta-form-field" type="text" placeholder="@yourhandle or you@email.com">
+    <label class="cta-form-label">Your primary platform</label>
+    <select class="cta-form-field">
+      <option value="">Select platform</option>
+      <option>Instagram</option>
+      <option>YouTube</option>
+      <option>LinkedIn</option>
+      <option>TikTok</option>
+      <option>Multiple platforms</option>
+    </select>
+    <label class="cta-form-label">Follower count (approx)</label>
+    <select class="cta-form-field">
+      <option value="">Select range</option>
+      <option>5K – 10K (Nano)</option>
+      <option>10K – 50K (Micro)</option>
+      <option>50K – 100K (Micro-mid)</option>
+      <option>100K – 500K (Mid-tier)</option>
+      <option>500K+ (Macro)</option>
+    </select>
+    <label class="cta-form-label">What's your biggest pain point?</label>
+    <select class="cta-form-field">
+      <option value="">Select one</option>
+      <option>I don't know what to charge</option>
+      <option>Brands lowball me constantly</option>
+      <option>I need help negotiating a live deal</option>
+      <option>I want to review my rate card</option>
+      <option>I gave away usage rights and want to fix it</option>
+    </select>
+    <button class="cta-submit" onclick="alert('Thanks! Garima will be in touch within 24 hours.')">Book My Free Rate Audit →</button>
+    <p class="form-note">No spam. No course upsell. Just a real conversation about your pricing.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Garima <span>Raj</span> — Creator Revenue Consultant</div>
+  <div class="footer-note">Business Analyst. Not a content coach. © 2025</div>
+</footer>
+
+</body>
+</html>
