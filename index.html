@@ -281,6 +281,15 @@ nav{
 .service-card.featured .svc-price-wrap{border-color:rgba(255,255,255,0.2);}
 .svc-price-label{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);}
 .svc-price{font-family:var(--mono);font-size:1.1rem;color:var(--ink);font-weight:500;}
+.svc-cta-link{
+  font-size:0.82rem;font-weight:500;
+  color:var(--accent);text-decoration:none;
+  letter-spacing:0.02em;
+  transition:opacity 0.2s;
+  display:inline-block;
+}
+.svc-cta-link:hover{opacity:0.7;}
+.service-card.featured .svc-cta-link{color:rgba(255,255,255,0.9);}
 
 /* PRICING INSIGHT */
 .insight{
@@ -586,8 +595,7 @@ footer{
         <li>Seasonal adjustment guidance</li>
       </ul>
       <div class="svc-price-wrap">
-        <div class="svc-price-label">Starting at</div>
-        <div class="svc-price">₹8,000 — ₹18,000</div>
+        <a href="#book" class="svc-cta-link">Book a free audit to discuss →</a>
       </div>
     </div>
     <div class="service-card">
@@ -602,8 +610,7 @@ footer{
         <li>Deliverables restructure for max value</li>
       </ul>
       <div class="svc-price-wrap">
-        <div class="svc-price-label">Starting at</div>
-        <div class="svc-price">₹4,500 per deal</div>
+        <a href="#book" class="svc-cta-link">Get a free deal review first →</a>
       </div>
     </div>
     <div class="service-card">
@@ -617,8 +624,7 @@ footer{
         <li>Email and DM response templates</li>
       </ul>
       <div class="svc-price-wrap">
-        <div class="svc-price-label">Starting at</div>
-        <div class="svc-price">₹5,000 per session</div>
+        <a href="#book" class="svc-cta-link">Tell me about your deal →</a>
       </div>
     </div>
     <div class="service-card">
@@ -632,8 +638,7 @@ footer{
         <li>Priority response within 24 hours</li>
       </ul>
       <div class="svc-price-wrap">
-        <div class="svc-price-label">Monthly retainer</div>
-        <div class="svc-price">₹15,000 — ₹25,000 / mo</div>
+        <a href="#book" class="svc-cta-link">Let's talk fit & scope →</a>
       </div>
     </div>
   </div>
@@ -753,11 +758,11 @@ footer{
   </div>
   <div class="cta-right">
     <label class="cta-form-label">Your name</label>
-    <input class="cta-form-field" type="text" placeholder="Priya Sharma">
+    <input id="f-name" class="cta-form-field" type="text" placeholder="Priya Sharma">
     <label class="cta-form-label">Email or Instagram handle</label>
-    <input class="cta-form-field" type="text" placeholder="@yourhandle or you@email.com">
+    <input id="f-contact" class="cta-form-field" type="text" placeholder="@yourhandle or you@email.com">
     <label class="cta-form-label">Your primary platform</label>
-    <select class="cta-form-field">
+    <select id="f-platform" class="cta-form-field">
       <option value="">Select platform</option>
       <option>Instagram</option>
       <option>YouTube</option>
@@ -766,7 +771,7 @@ footer{
       <option>Multiple platforms</option>
     </select>
     <label class="cta-form-label">Follower count (approx)</label>
-    <select class="cta-form-field">
+    <select id="f-followers" class="cta-form-field">
       <option value="">Select range</option>
       <option>5K – 10K (Nano)</option>
       <option>10K – 50K (Micro)</option>
@@ -775,7 +780,7 @@ footer{
       <option>500K+ (Macro)</option>
     </select>
     <label class="cta-form-label">What's your biggest pain point?</label>
-    <select class="cta-form-field">
+    <select id="f-pain" class="cta-form-field">
       <option value="">Select one</option>
       <option>I don't know what to charge</option>
       <option>Brands lowball me constantly</option>
@@ -783,7 +788,7 @@ footer{
       <option>I want to review my rate card</option>
       <option>I gave away usage rights and want to fix it</option>
     </select>
-    <button class="cta-submit" onclick="alert('Thanks! Garima will be in touch within 24 hours.')">Book My Free Rate Audit →</button>
+    <button class="cta-submit" onclick="submitAudit()">Book My Free Rate Audit →</button>
     <p class="form-note">No spam. No course upsell. Just a real conversation about your pricing.</p>
   </div>
 </section>
@@ -792,6 +797,35 @@ footer{
   <div class="footer-name">Garima <span>Raj</span> — Creator Revenue Consultant</div>
   <div class="footer-note">Business Analyst. Not a content coach. © 2025</div>
 </footer>
+
+<script>
+function submitAudit(){
+  var name     = document.getElementById('f-name').value.trim();
+  var contact  = document.getElementById('f-contact').value.trim();
+  var platform = document.getElementById('f-platform').value;
+  var followers= document.getElementById('f-followers').value;
+  var pain     = document.getElementById('f-pain').value;
+
+  if(!name || !contact || !platform || !followers || !pain){
+    alert('Please fill in all fields before submitting.');
+    return;
+  }
+
+  var subject = encodeURIComponent('Free Rate Audit Request — ' + name);
+  var body = encodeURIComponent(
+    'Hi Garima,\n\n' +
+    'I\'d like to book a free rate audit. Here are my details:\n\n' +
+    'Name: ' + name + '\n' +
+    'Email / Instagram: ' + contact + '\n' +
+    'Primary Platform: ' + platform + '\n' +
+    'Follower Count: ' + followers + '\n' +
+    'Biggest Pain Point: ' + pain + '\n\n' +
+    'Looking forward to hearing from you!'
+  );
+
+  window.location.href = 'mailto:gam.businessconsultant@gmail.com?subject=' + subject + '&body=' + body;
+}
+</script>
 
 </body>
 </html>
